@@ -1,0 +1,48 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #1e293b;
+  --header-bg: rgba(248, 250, 252, 0.8);
+}
+
+body.dark {
+  --bg-primary: #020617;
+  --bg-card: #0f172a;
+  --text-primary: #EDEDED;
+  --header-bg: rgba(2, 6, 23, 0.8);
+}
+
+body.sepia {
+  --bg-primary: #f4ecd8;
+  --bg-card: #efdfbb;
+  --text-primary: #433422;
+  --header-bg: rgba(244, 236, 216, 0.8);
+}
+
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: var(--header-bg);
+}
+
+.arabic-text {
+  font-family: 'Amiri', 'Noto Sans Arabic', serif;
+}
+
+.urdu-text {
+  font-family: 'Noto Sans Arabic', serif;
+}
+
+.tap-effect:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

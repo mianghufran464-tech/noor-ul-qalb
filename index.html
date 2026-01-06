@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Noor-ul-Qalb | AI Quran</title>
+    
+    <link rel="manifest" href="./metadata.json">
+    <link rel="stylesheet" href="./index.css">
+    
+    <meta name="theme-color" content="#047857">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;600;800&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8fafc;
+            overflow: hidden;
+            height: 100dvh;
+            width: 100vw;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #splash {
+            position: fixed;
+            inset: 0;
+            background: #047857;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
+        #splash.hidden { opacity: 0; visibility: hidden; }
+        .loader {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-bottom-color: #fcd34d;
+            border-radius: 50%;
+            margin-top: 30px;
+            animation: rotation 1s linear infinite;
+        }
+        @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .splash-logo {
+            background: white;
+            padding: 24px;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border: 4px solid #fcd34d;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="light">
+    <div id="splash">
+        <div class="flex flex-col items-center">
+            <div class="splash-logo">
+                <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100px; height: 100px;">
+                    <path d="M150 420C180 420 220 400 256 380C292 400 332 420 362 420" stroke="#065f46" stroke-width="20" stroke-linecap="round"/>
+                    <path d="M180 450L240 380M332 450L272 380" stroke="#065f46" stroke-width="20" stroke-linecap="round"/>
+                    <path d="M256 360C200 360 130 330 130 280L256 310L382 280C382 330 312 360 256 360Z" fill="#d4af37"/>
+                    <path d="M256 310V360" stroke="#b8860b" stroke-width="2"/>
+                    <path d="M180 250C180 180 210 130 256 130C302 130 332 180 332 250H180Z" fill="#047857"/>
+                    <circle cx="256" cy="60" r="10" fill="#d4af37" />
+                    <path d="M256 70V130" stroke="#065f46" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 class="text-white text-4xl font-black mt-10 tracking-tight">Noor-ul-Qalb</h1>
+            <p class="text-emerald-200 text-sm font-bold mt-2 tracking-[0.4em] uppercase">نُورُ الْقَلْبِ</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const splash = document.getElementById('splash');
+          if (splash) splash.classList.add('hidden');
+        }, 1800);
+      });
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
