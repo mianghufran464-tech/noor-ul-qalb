@@ -1,0 +1,50 @@
+
+{
+  "name": "Noor-ul-Qalb | AI Quran",
+  "short_name": "Noor-ul-Qalb",
+  "description": "نورالقلب - An AI-powered spiritual guide for exploring the Quran and Hadith with translations, prayer times, and insights.",
+  "categories": ["books", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "https://img.icons8.com/external-flat-icons-max-icons/512/external-quran-ramadan-flat-icons-max-icons.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://img.icons8.com/external-flat-icons-max-icons/512/external-quran-ramadan-flat-icons-max-icons.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://img.icons8.com/external-flat-icons-max-icons/512/external-quran-ramadan-flat-icons-max-icons.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Quran Reader",
+      "url": "./index.html#reader",
+      "icons": [{ "src": "https://img.icons8.com/external-flat-icons-max-icons/512/external-quran-ramadan-flat-icons-max-icons.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Tasbeeh",
+      "url": "./index.html#tasbeeh",
+      "icons": [{ "src": "https://img.icons8.com/fluency/96/prayer-beads.png", "sizes": "96x96" }]
+    }
+  ],
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "portrait",
+  "theme_color": "#065f46",
+  "background_color": "#065f46",
+  "scope": "./"
+}
